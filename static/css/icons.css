@@ -3,5 +3,9 @@
     width: 3rem;
     top: 5rem;
     transform: translateY(-50%);
-    fill: rgba(221, 221, 221, 1);    
+    fill: rgba(221, 221, 221, 1);
+}
+
+.icon path {
+    cursor: pointer;    
 }

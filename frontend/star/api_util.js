@@ -6,7 +6,18 @@ const ROOT_URL = (process.env.NODE_ENV !== "production") ? 'http://localhost:309
 axios.defaults.headers.common['x-auth'] = localStorage.getItem('token');
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
+
+export const fetchStars = (success) => {
+    axios.get(`${ROOT_URL}/api/stars`)
+    .then(success);
+};
+
 export const createStar = (redditId, success) => {
     axios.post(`${ROOT_URL}/api/stars`, {redditId})
+    .then(success);
+};
+
+export const deleteStar = (redditId, success) => {
+    axios.delete(`${ROOT_URL}/api/stars`, {redditId})
     .then(success);
 };

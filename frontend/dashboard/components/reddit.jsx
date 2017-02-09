@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import moment from 'moment';
+import StarButton from './star_button';
 // import * as actions from '../actions';
 
 class Reddit extends Component {
@@ -22,7 +23,7 @@ class Reddit extends Component {
     }
 
     renderDropDownBtn() {
-        let { preview } = this.props;
+        let { preview } = this.props.data;
         if (preview) {
             if (!this.state.dropdown)
                 return <svg xmlns="http://www.w3.org/2000/svg" onClick={this.toggleDropdown} className="btn-media" viewBox="0 0 34.9 34.9"><path id="bg" d="M31.9 34.9h-29C1.3 34.9 0 33.6 0 32V3c0-1.7 1.3-3 2.9-3h29c1.6 0 2.9 1.3 2.9 2.9v29c.1 1.7-1.2 3-2.9 3z"/><path fill="#FFF" d="M7.8 8.7v17c0 2.2 2.4 3.6 4.3 2.5l14.8-8.5c1.9-1.1 1.9-3.9 0-5L12.1 6.2c-1.9-1.1-4.3.3-4.3 2.5zM32 27h-2c-.3 0-.5-.2-.5-.5v-2c0-.3-.2-.5-.5-.5h-1.3c-.3 0-.5.2-.5.5v2c0 .3-.2.5-.5.5h-2c-.3 0-.5.2-.5.5v1.3c0 .3.2.5.5.5h2c.3 0 .5.2.5.5v2c0 .3.2.5.5.5H29c.3 0 .5-.2.5-.5v-2c0-.3.2-.5.5-.5h2c.3 0 .5-.2.5-.5v-1.3c.1-.3-.2-.5-.5-.5z"/></svg>;
@@ -32,26 +33,21 @@ class Reddit extends Component {
         }
     }
 
-    handleStar(e, redditId) {
-        e.target.classList.add('heart-animation');
-        this.props.createStar(redditId);
-    }
-
     renderDropDown() {
-        let { preview } = this.props;
+        let { preview } = this.props.data;
         if (preview && this.state.dropdown) {    
             return <img className="img-dropdown" src={preview.images[0].source.url} />;
         }
     }
     
     render() {
-        let { id, thumbnail, created_utc, title, link_flair_text, num_comments, domain, author, subreddit } = this.props;
+        let { createStar, deleteStar, stars } = this.props;
+        let { id, thumbnail, created_utc, title, link_flair_text, num_comments, domain, author, subreddit } = this.props.data;
         thumbnail = (thumbnail === 'self' || thumbnail === 'default') ? './static/images/self.png' : thumbnail;
+
         return(
             <div className="reddit c-reddit">
-                <div className="btn-star">
-                    <svg className="icon" onClick={(e) => this.handleStar(e, id)} viewBox="-6.9 -13.1 40 40"><path class="shape" d="M20.7-7.2c-5.8 0-7.6 4.3-7.6 4.3s-1.8-4.3-7.6-4.3S-2.9-3.5-2.9.9c0 2.2 1.8 5.2 3.6 7.3C2.5 10.3 13.1 20.6 13.1 21c0-.4 10.6-10.7 12.4-12.7 1.8-2 3.6-5 3.6-7.3 0-4.4-2.7-8.2-8.4-8.2z" /></svg>
-                </div>
+                <StarButton redditId={id} stars={stars} createStar={createStar} deleteStar={deleteStar} />
                 <div className="main-reddit fb">
                     <img src={thumbnail} alt="" className="img-tn"/>
                     <div className="text-wrapper">

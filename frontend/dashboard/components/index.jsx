@@ -12,12 +12,13 @@ class Dashboard extends Component {
 
     componentWillMount() {
         this.props.requestReddits();
+        this.props.requestStars();
     }
 
     renderReddits() {
-        let { createStar } = this.props;
+        let { createStar, stars } = this.props;
         return this.props.reddits.slice(0, 5).map((reddit, i) => {
-            return <Reddit key={reddit.id} {...reddit.data} createStar={createStar} />;
+            return <Reddit key={reddit.id} stars={stars} {...reddit} createStar={createStar} />;
         });
     }
     
@@ -31,14 +32,16 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-    let { reddit } = state;
+    let { reddit, star } = state;
     return {
-        reddits: reddit
+        reddits: reddit,
+        stars: star
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     requestReddits: () => dispatch(redditsActions.requestReddits()),
+    requestStars: () => dispatch(starsActions.requestStars()),
     createStar: redditId => dispatch(starsActions.createStar(redditId))
 });
 

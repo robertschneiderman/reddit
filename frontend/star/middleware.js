@@ -5,11 +5,27 @@ import {router, hashHistory} from 'react-router';
 const starMiddleware = ({dispatch}) => next => action => {
 
     const success = res => {
+        dispatch(actions.receiveStars(res.data));
+    };
+
+    const successCreate = res => {
         dispatch(actions.receiveStar(res.data));
     };
+
+    const successDelete = res => {
+        dispatch(actions.removeStar(res.data));
+    };    
+    
     switch (action.type) {
+        case "REQUEST_STARS":
+            API.fetchStars(success); 
+            return next(action);                    
         case "CREATE_STAR":
-            API.createStar(action.payload, success); 
+            API.createStar(action.payload, successCreate); 
+            return next(action);            
+        case "DELETE_STAR":
+            API.deleteStar(action.payload, successDelete);
+            return next(action);               
         default:
             return next(action);
     }

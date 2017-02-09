@@ -9,7 +9,8 @@ const dashboardMiddleware = ({dispatch}) => next => action => {
     };
     switch (action.type) {
         case "REQUEST_REDDITS":
-            API.fetchReddits(success);          
+            API.fetchReddits(success);    
+            return next(action);                  
         default:
             return next(action);
     }
