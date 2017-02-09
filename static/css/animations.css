@@ -1,3 +1,7 @@
+.heart-animation {
+  animation: heart_animation .5s ease 0 1 normal forwards;
+}
+
 @keyframes heart_animation {
   0% {
     opacity: 0;

@@ -1,8 +1,6 @@
-.form {
+.form {width: 90%;max-width: 310px;/* margin: 3rem 15rem; */margin: 3rem auto 0;}
 
-}
-
-.fieldset {display: flex;margin-bottom: 1rem;}
+.fieldset {/* display: flex; */margin-bottom: 1rem;}
 
 .field {
     
@@ -21,7 +19,6 @@
 
 .label {
     display: block;
-    font-weight: 700;
     margin-bottom: 0.3rem;
 }
 

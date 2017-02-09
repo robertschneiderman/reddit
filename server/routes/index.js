@@ -13,9 +13,10 @@ module.exports = (app) => {
     message: 'Welcome to the auth API!',
   }));
 
-  app.get('/api/reddits', redditController.get);
-  app.get('/api/stars', starController.get);
+  app.get('/api/reddits', requireSignIn, redditController.get);
 
-  app.post('/api/signup', authController.signup);
-  app.post('/api/signin', requireSignIn, authController.signin);
+  app.post('/api/stars', requireSignIn, starController.create);
+
+  app.post('/signup', authController.signup);
+  app.post('/signin', requireSignIn, authController.signin);
 };

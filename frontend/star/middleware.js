@@ -10,7 +10,7 @@ const starMiddleware = ({dispatch}) => next => action => {
     };
     switch (action.type) {
         case "CREATE_STAR":
-            API.createStar(success); 
+            API.createStar(action.payload, success); 
         default:
             return next(action);
     }

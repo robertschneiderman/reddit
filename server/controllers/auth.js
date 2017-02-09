@@ -25,7 +25,7 @@ module.exports = {
             if (!created) {
                 return res.status(422).send({ error: 'Email is in use'} );
             }
-            res.status(201).send(user);
+            res.status(201).send({token: tokenForUser(user), id: user.id});
         }).catch(error => res.status(400).send(error));
     },
 

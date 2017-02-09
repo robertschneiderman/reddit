@@ -15,9 +15,9 @@ class Dashboard extends Component {
     }
 
     renderReddits() {
-        let { createLike } = this.props;
+        let { createStar } = this.props;
         return this.props.reddits.slice(0, 5).map((reddit, i) => {
-            return <Reddit key={reddit.id} {...reddit.data} createLike={createLike} />;
+            return <Reddit key={reddit.id} {...reddit.data} createStar={createStar} />;
         });
     }
     
@@ -39,7 +39,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     requestReddits: () => dispatch(redditsActions.requestReddits()),
-    createLike: () => dispatch(starsActions.createStar())
+    createStar: () => dispatch(starsActions.createStar())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

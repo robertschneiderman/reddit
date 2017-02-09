@@ -33,8 +33,7 @@ class Reddit extends Component {
     }
 
     handleStar(e, redditId) {
-        // e.target
-        debugger;
+        e.target.classList.add('heart-animation');
         this.props.createStar(redditId);
     }
 

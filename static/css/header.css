@@ -33,9 +33,7 @@
   width: 2.3em;
 }
 
-.navbar-nav {
-
-}
+.navbar-nav {display: flex;list-style: none;}
 
 .navbar-item {
 

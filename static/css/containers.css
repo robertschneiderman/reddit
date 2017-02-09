@@ -19,6 +19,11 @@
     /* align-items: center; */
 }
 
+.c-hl {
+    text-align: center;
+    padding: 4rem;
+}
+
 .db {
     margin: 0 auto;
     width: 100%;
