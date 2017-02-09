@@ -13,13 +13,14 @@ class Reddit extends Component {
     
     render() {
         let { thumbnail, title, link_flair_text, num_comments, domain, author, subreddit } = this.props;
+        thumbnail = (thumbnail === 'self' || thumbnail === 'default') ? './static/images/self.png' : thumbnail;
         return(
             <div className="reddit c-reddit">
                 <div className="like-btn"></div>
                 <div className="main-reddit fb">
-                    <img src={thumbnail} alt="" className="img-thumbnail"/>
+                    <img src={thumbnail} alt="" className="img-tn"/>
                     <div className="text-wrapper">
-                        <h3 className="title-reddit">{title} <span className="tstyle-box">{link_flair_text}</span> <a className="link">({domain})</a></h3>
+                        <h3 className="title">{title} <span className="tstyle-box">{link_flair_text}</span> <a className="link">({domain})</a></h3>
                         <div className="below-title fb">
                             <img src="" className="btn-media" />
                             <div className="side-of-media-btn">

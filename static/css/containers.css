@@ -10,8 +10,8 @@
 .c-reddit {
     display: flex;
     width: 90%;
-    margin: 0 0 0 14rem;
-    max-width: 600px;
+    margin: 0 auto 4rem;
+    max-width: 840px;
 }
 
 .db {
