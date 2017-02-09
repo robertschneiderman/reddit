@@ -1,3 +1,7 @@
+const jwt = require('jwt-simple');
+const bcrypt = require('bcrypt-nodejs');
+const config = require('../environment');
+
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
@@ -12,11 +16,35 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.Stars, {
+        User.hasMany(models.Star, {
           foreignKey: 'userId',
           as: 'stars'
         });
-        // associations can be defined here
+      },
+      findByToken: function(token) {
+        var User = this;
+        var decoded;
+
+        decoded = jwt.decode(token, config.secret);
+
+        try {
+          decoded = jwt.decode(token, config.secret);
+        } catch (e) {
+          return Promise.reject();
+        }
+
+        return User.findOne({
+          _id: decoded.sub,
+        }); 
+      }     
+    },
+    instanceMethods: {
+      comparePasswords: (candidatePassword, password, callback) => {
+        if (bcrypt.compareSync(candidatePassword, password)) {
+          callback(null, true);
+        } else {
+          callback(null, false);
+        }
       }
     }
   });
