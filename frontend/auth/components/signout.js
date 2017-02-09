@@ -14,8 +14,8 @@ class Signout extends Component {
 
   render() {
     return(
-      <div className="">
-        Sorry to see you go...
+      <div className="c-hl">
+        <h1 className="hl">Sorry to see you go...</h1>
       </div>
     );
   }

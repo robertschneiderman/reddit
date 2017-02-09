@@ -7,6 +7,7 @@ const LocalStrategy = require('passport-local');
 const config = require('../environment');
 
 const localOptions = { usernameField: 'email' };
+
 const localLogin = new LocalStrategy({ usernameField: 'email' }, function(email, password, done) {
   User.findOne({where: {email: email}}).then((user) => {
     user.comparePasswords(password, user.password, function(err, isMatch) {
