@@ -4,10 +4,10 @@ import createLogger from 'redux-logger';
 import reducers from './root_reducer.js';
 
 import userMiddleware from './user/middleware';
-import gameMiddleware from './game/middleware';
+import dashboardMiddleware from './dashboard/middleware';
 
 const logger = createLogger();
 
-const createStoreWithMiddleware = applyMiddleware(reduxThunk, logger, userMiddleware, gameMiddleware)(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk, logger, userMiddleware, dashboardMiddleware)(createStore);
 const store = createStoreWithMiddleware(reducers);
 export default store;
