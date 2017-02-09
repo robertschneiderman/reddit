@@ -7,13 +7,20 @@
 }
 
 .btn-media {
-    fill: #E8E8E8;
     width: 2.6rem;
     height: 2.6rem;
     margin-right: 0.7rem;
     cursor: pointer;
 }
 
-.btn-media:hover {
+.btn-media #bg {
+    fill: #E8E8E8;
+}
+
+.btn-media:hover #bg {
     fill: #8098af;
+}
+
+.btn-star {
+    margin-right: 1rem;
 }

@@ -2,17 +2,23 @@ import * as API from './api_util';
 import * as actions from './actions';
 import {router, hashHistory} from 'react-router';
 
-const dashboardMiddleware = ({dispatch}) => next => action => {
+const starMiddleware = ({dispatch}) => next => action => {
 
     const success = res => {
-        dispatch(actions.receiveReddits(res.data));
+        debugger;
+        dispatch(actions.receiveStar(res.data));
     };
     switch (action.type) {
-        case "REQUEST_REDDITS":
-            API.fetchReddits(success);          
+        case "CREATE_STAR":
+            API.createStar(success); 
         default:
             return next(action);
     }
 };
 
-export default dashboardMiddleware;
+export default starMiddleware;
+
+ 
+
+
+        

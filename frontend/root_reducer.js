@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
 import auth from './auth/reducer';
+import star from './star/reducer';
 import reddit from './reddit/reducer';
 import user from './user/reducer';
 
@@ -8,6 +9,7 @@ const appReducer = combineReducers({
   auth,
   reddit,
   form,
+  star,
   user
 });
 

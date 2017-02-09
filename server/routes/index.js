@@ -1,5 +1,6 @@
 const authController = require('../controllers').auth;
 const redditController = require('../controllers').reddit;
+const starController = require('../controllers').star;
 
 
 const passportService = require('../services/passport');
@@ -13,6 +14,7 @@ module.exports = (app) => {
   }));
 
   app.get('/api/reddits', redditController.get);
+  app.get('/api/stars', starController.get);
 
   app.post('/api/signup', authController.signup);
   app.post('/api/signin', requireSignIn, authController.signin);

@@ -9,3 +9,7 @@
 .text-large {
     font-size: 1.3rem;
 }
+
+.text-wrapper {
+    width: 100%;
+}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Reddit from './reddit';
 import * as redditsActions from '../../reddit/actions';
+import * as starsActions from '../../star/actions';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -14,8 +15,9 @@ class Dashboard extends Component {
     }
 
     renderReddits() {
-        return this.props.reddits.map((reddit, i) => {
-            return <Reddit key={reddit.id} {...reddit.data} />;
+        let { createLike } = this.props;
+        return this.props.reddits.slice(0, 5).map((reddit, i) => {
+            return <Reddit key={reddit.id} {...reddit.data} createLike={createLike} />;
         });
     }
     
@@ -36,7 +38,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    requestReddits: () => dispatch(redditsActions.requestReddits())
+    requestReddits: () => dispatch(redditsActions.requestReddits()),
+    createLike: () => dispatch(starsActions.createStar())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
