@@ -7,6 +7,6 @@ axios.defaults.headers.common['x-auth'] = localStorage.getItem('token');
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export const createStar = (redditId, success) => {
-    axios.post(`${ROOT_URL}/api/stars`, redditId)
+    axios.post(`${ROOT_URL}/api/stars`, {redditId})
     .then(success);
 };

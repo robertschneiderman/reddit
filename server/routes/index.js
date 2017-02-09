@@ -14,7 +14,7 @@ module.exports = (app) => {
 
   app.get('/api/reddits', redditController.get);
 
-  app.post('/api/stars', requireSignIn, starController.create);
+  app.post('/api/stars', starController.create);
 
   app.post('/signup', authController.signup);
   app.post('/signin', requireSignIn, authController.signin);

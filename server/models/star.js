@@ -2,6 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Star = sequelize.define('Star', {
     userId: DataTypes.INTEGER,
+    redditId: DataTypes.STRING,
     allowNull: false
   }, {
     classMethods: {

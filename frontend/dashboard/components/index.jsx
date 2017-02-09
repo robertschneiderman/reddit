@@ -39,7 +39,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     requestReddits: () => dispatch(redditsActions.requestReddits()),
-    createStar: () => dispatch(starsActions.createStar())
+    createStar: redditId => dispatch(starsActions.createStar(redditId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

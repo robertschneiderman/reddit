@@ -31,7 +31,6 @@ export function signupUser({ email, name, password }) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signup`, { email, name, password})
       .then(response => {
-        debugger;
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('currentUser', response.data.id);        
         dispatch({ type: AUTH_USER });
@@ -39,7 +38,6 @@ export function signupUser({ email, name, password }) {
         hashHistory.push('dashboard');
       })
       .catch(() => {
-        debugger;
         dispatch(authError("Bad Signup Info"));
       });
       // .catch(response => dispatch(authError(response.data.error)))

@@ -7,7 +7,9 @@ module.exports = {
         var token = req.header('x-auth');
         User.findByToken(token).then((user) => {        
             req.body.redditId;
-            Star.create({user});
+            Star.create({userId: user.id, redditId: req.body.redditId}).then((star) => {
+                res.status(201).send({star});                
+            });
         });
     }
 };
