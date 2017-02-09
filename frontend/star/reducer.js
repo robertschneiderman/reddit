@@ -8,7 +8,7 @@ const likeReducer = (state = defaultState, action) => {
     let newState = merge({}, state);
     switch (action.type) {
         case 'RECEIVE_LIKE':
-            newState.push(action.payload);
+            newState.push(action.payload.star);
             return newState;
         default:
             return state;
