@@ -1,4 +1,8 @@
-.title {margin: 0;font-size: 1.5rem;}
+.title {margin: 0 0 0.6rem;font-size: 1.5rem;}
+
+.subtitle {
+    margin: 0 0 0.4rem;
+}
 
 .title--panel {
 

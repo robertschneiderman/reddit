@@ -9,5 +9,14 @@
 }
 
 .link-regular {
+    display: inline-block;
     font-size: 1rem;
+    color: #5f98c3;
+}
+
+.link-reddit {
+    font-weight: 700;
+    text-decoration: none;
+    margin-right: 1rem;
+    color: #888;
 }

@@ -1,6 +1,10 @@
 .app {
 }
 
+.dashboard {
+    padding: 2rem 0;
+}
+
 .container {
     display: flex;
     justify-content: space-between;

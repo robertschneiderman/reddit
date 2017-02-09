@@ -55,3 +55,11 @@
         display: block;
     }    
 }
+
+.mr05 {
+    margin-right: .5rem;
+}
+
+.mr1 {
+    margin-right: 1rem;
+}
