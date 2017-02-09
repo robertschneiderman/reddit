@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
 import auth from './auth/reducer';
-import dashboard from './dashboard/reducer';
+import reddit from './reddit/reducer';
 import user from './user/reducer';
 
 const appReducer = combineReducers({
   auth,
-  dashboard,
+  reddit,
   form,
   user
 });

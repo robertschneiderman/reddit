@@ -1,0 +1,14 @@
+.avatar {
+    display: flex;
+}
+
+.avatar--left {margin-right: 1rem;}
+
+.avatar--right {
+
+}
+
+.avatar--img {
+    width: 5rem;
+    height: 5rem;
+}

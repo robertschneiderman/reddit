@@ -1,0 +1,20 @@
+.list {
+
+}
+
+.list-unbulleted {
+    margin: 1.5rem 0;
+    list-style: none;
+}
+
+.item-spaced {
+    margin-bottom: 2rem;
+}
+
+.list-phase {
+
+}
+
+.item-phase {
+    font-size: 1rem;
+}

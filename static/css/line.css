@@ -1,0 +1,10 @@
+.line {
+    border-color: #51abef;
+    color: red;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.line-grey {
+    border-color: #ddd;
+}

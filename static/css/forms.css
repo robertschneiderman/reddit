@@ -1,0 +1,34 @@
+.form {
+
+}
+
+.fieldset {display: flex;margin-bottom: 1rem;}
+
+.field {
+    
+    width: 100%;
+}
+
+.field-half {
+    width: 50%;
+    margin-right: 5%;
+}
+
+.field-third {
+    margin-right: 5%;    
+    width: 30%;
+}
+
+.label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.input {width: 100%;border-radius: 5px;border: 1px solid #ddd;padding: 0.3rem;}
+
+.form-error {
+    color: red;
+    margin-top: 0.4rem;
+    display: block;
+}

@@ -1,0 +1,22 @@
+.panel {border: 2px solid #eee; width: 90%;margin: 0 auto 2rem; border-radius: 10px;overflow: hidden;}
+
+@media (min-width: 775px) {
+    .panel {
+        width: 48%;
+        margin: 0;
+    }
+}
+
+.panel--head {
+    background-color: #ddd;
+    /* border-top-left-radius: 7px; */
+    /* border-top-right-radius: 7px; */
+}
+
+.panel--main {
+
+}
+
+.panel--head, .panel--main {
+    padding: 0.9rem 1rem;
+}

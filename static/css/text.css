@@ -1,0 +1,11 @@
+.text-bold {
+    margin: 0;
+}
+
+.text-regular {
+    margin: 0.7rem 0;
+}
+
+.text-large {
+    font-size: 1.3rem;
+}

@@ -1,0 +1,41 @@
+.app {
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.c-reddit {
+    display: flex;
+    width: 90%;
+    margin: 0 0 0 14rem;
+    max-width: 600px;
+}
+
+.db {
+    margin: 0 auto;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 3rem;
+}
+
+@media (min-width: 775px) {
+    .db {
+        max-width: 1148px;
+        margin: 0 auto;
+        width: 80%;
+        background-color: #fff;
+        padding: 1rem 2rem;
+    }
+}
+
+
+@media (min-width: 775px) {
+    .panels {display: flex;justify-content: space-between;}
+}
+
+.prompt {
+    text-align: right;
+}

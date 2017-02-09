@@ -1,0 +1,10 @@
+.table {width: 80%;}
+
+.table--row {
+
+}
+
+.table--column {
+    padding: 0.3rem;
+    width: 33%;
+}
