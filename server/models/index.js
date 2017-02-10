@@ -50,7 +50,7 @@ console.log(match[5]);
 // db.sequelize = sequelize;
 // db.Sequelize = Sequelize;
 
-  global.db = {
+ db = {
     Sequelize: Sequelize,
     sequelize: sequelize,
     User:      sequelize.import(__dirname + '/user'), 
