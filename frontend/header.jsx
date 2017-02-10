@@ -31,6 +31,7 @@ class Header extends Component {
 
   render() {
     let { feed } = this.props;
+    let navbarClassName = (!feed) ? 'nabar-nav none' : 'navbar-nav';
     let hotClassName = (feed === 'hot') ? 'nav-link-pill active' : 'nav-link-pill';
     let favClassName = (feed === 'favorites') ? 'nav-link-pill active' : 'nav-link-pill';
     return (
@@ -38,7 +39,7 @@ class Header extends Component {
         <div>
           <img className="img-logo" src="./static/images/reddit_lite_logo.svg" alt=""/>
         </div>
-        <ul className="navbar-nav">
+        <ul className={navbarClassName}>
           <li className={hotClassName} onClick={this.handleClick.bind(this, 'hot')}>Hot</li>
           <li className={favClassName} onClick={this.handleClick.bind(this, 'favorites')}>Favorites</li>
         </ul>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import merge from 'lodash/merge';
 import {router, hashHistory} from 'react-router';
 
-let defaultState = {feed: 'hot'};
+let defaultState = {feed: null};
 
 const dashboardReducer = (state = defaultState, action) => {
     let newState = merge({}, state);

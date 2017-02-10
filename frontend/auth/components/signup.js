@@ -4,7 +4,7 @@ import * as actions from '../actions';
 import { connect } from 'react-redux';
 import store from '../../store.js';
 
-import { validate, renderField } from '../helpers';
+import { validate1, renderField } from '../helpers';
 
 const handleFormSubmit = ({ email, password }) => {
   actions.signupUser({ email, password})(store.dispatch);
@@ -54,7 +54,7 @@ function mapStateToProps(state) {
 
 let signUpForm = reduxForm({
   form: 'signup',
-  validate  
+  validate1  
 })(Signup);
 
 export default signUpForm = connect(mapStateToProps, actions)(signUpForm);

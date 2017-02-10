@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Reddit from './reddit';
 import * as redditsActions from '../../reddit/actions';
 import * as starsActions from '../../star/actions';
+import * as actions from '../actions';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Dashboard extends Component {
     }
 
     componentWillMount() {
+        this.props.changeFeed('hot');
         this.props.requestReddits();
         this.props.requestStars();
     }
@@ -59,7 +61,8 @@ const mapDispatchToProps = dispatch => ({
     requestReddits: () => dispatch(redditsActions.requestReddits()),
     requestStars: () => dispatch(starsActions.requestStars()),
     createStar: redditId => dispatch(starsActions.createStar(redditId)),
-    deleteStar: redditId => dispatch(starsActions.deleteStar(redditId))
+    deleteStar: redditId => dispatch(starsActions.deleteStar(redditId)),
+    changeFeed: redditId => dispatch(actions.changeFeed(redditId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
