@@ -45,3 +45,16 @@
   font-weight: 700;
   color: #6fbbe2;
 }
+
+.nav-link-pill {
+  margin-right: 1rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ccc;
+  color: #999;
+  border-radius: 14px;
+  font-weight: 700;
+}
+
+.nav-link-pill.active {color: #62a5d0;}
+
+.nav-link-pill.active, .nav-link-pill:hover {border: 1px solid pink;}
