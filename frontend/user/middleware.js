@@ -5,11 +5,11 @@ import {router, hashHistory} from 'react-router';
 const userMiddleware = ({dispatch}) => next => action => {
 
     const success = res => {
-    dispatch(actions.receive(res.data));
+        dispatch(actions.receiveUser(res.data));
     };
     switch (action.type) {
-        case 'action':
-            API.get(action.payload, success);
+        case 'REQUEST_USER':
+            API.getUser(action.payload.id, success);
             return next(action);
         default:
             return next(action);

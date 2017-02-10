@@ -5,7 +5,6 @@ var Star = require('../models').Star;
 module.exports = {
     get(req, res) {
         var token = req.header('x-auth');
-        console.log('token: ', token);
         User.findByToken(token).then((user) => {        
             Star.findAll({where: {userId: user.id}}).then((stars) => {
                 stars = stars ? stars : [];
@@ -16,7 +15,6 @@ module.exports = {
 
     create(req, res) {
         var token = req.header('x-auth');
-        console.log('token: ', token);        
         User.findByToken(token).then((user) => {        
             Star.create({userId: user.id, redditId: req.body.redditId}).then((star) => {
                 res.status(201).send({star});                

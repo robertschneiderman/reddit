@@ -10,6 +10,7 @@ const starReducer = (state = defaultState, action) => {
         case 'RECEIVE_STARS':
         // debugger;
             newState = action.payload.map(star => star.redditId);
+            hashHistory.push('dashboard');            
             return newState;        
         case 'RECEIVE_STAR':
             newState.push(action.payload.star.redditId);

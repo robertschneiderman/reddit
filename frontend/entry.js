@@ -22,6 +22,13 @@ if (token) {
   store.dispatch({ type: AUTH_USER });
 }
 
+// const currentUser = localStorage.getItem('currentUser');
+
+// if (currentUser) {
+//   store.dispatch(userActions.requestUser(currentUser));
+//   // store.dispatch({ type: 'REQUEST_USER', payload: currentUser });
+// }
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>

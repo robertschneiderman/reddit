@@ -18,13 +18,13 @@ export function signinUser({ email, name, password }) {
   return function(dispatch) {
     axios.post(`signin`, { email, name, password })
       .then(response => {
-        dispatch({ type: AUTH_USER, payload: response.user });
+        dispatch({ type: AUTH_USER, payload: response.data.user });
+        debugger;
         localStorage.setItem('token', response.data.token);
-        localStorage.setItem('currentUser', response.data.id);
+        localStorage.setItem('currentUser', response.data.user.id);
         
         const currentUser = localStorage.getItem('currentUser');        
-        dispatch({ type: 'REQUEST_USER', payload: currentUser });        
-        hashHistory.push('dashboard');
+        dispatch({ type: 'REQUEST_STARS' });        
       })
       .catch(() => {
         dispatch(authError("Bad Login Info"));
@@ -39,7 +39,6 @@ export function signupUser({ email, name, password }) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('currentUser', response.data.id);        
         dispatch({ type: AUTH_USER });
-        dispatch({ type: 'CREATE_BLANK_HISTORY' });
         hashHistory.push('dashboard');
       })
       .catch(() => {

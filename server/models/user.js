@@ -33,7 +33,9 @@ module.exports = function(sequelize, DataTypes) {
         }
 
         return User.findOne({
-          id: decoded.sub,
+          where: {
+            id: decoded.sub,
+          }          
         }); 
       }     
     },
