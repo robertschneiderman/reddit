@@ -28,7 +28,6 @@ class Dashboard extends Component {
     }
 
     renderStarredReddits() {
-        debugger;
         let { createStar, deleteStar, stars } = this.props;
         let starredReddits = this.props.reddits.filter(reddit => {
             return stars.includes(reddit.data.id);

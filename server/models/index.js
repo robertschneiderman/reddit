@@ -11,11 +11,6 @@ var db        = {};
 
 if (process.env.DATABASE_URL) {
 var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
-console.log(match[1]);
-console.log(match[2]);
-console.log(match[3]);
-console.log(match[4]);
-console.log(match[5]);
   var sequelize = new Sequelize(match[5], match[1], match[2], {
     dialect:  'postgres',
     protocol: 'postgres',
