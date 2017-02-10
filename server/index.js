@@ -7,6 +7,8 @@ const cors = require('cors');
 const router = require('./routes');
 const app = express();
 
+const db = require('./models');
+
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, '../')));
@@ -33,6 +35,9 @@ router(app);
 // Server Setup
 
 const port = process.env.PORT || 3090;
-const server = http.createServer(app);
-server.listen(port);
-console.log("Server listening on:", port);
+
+db.sequelize.sync().then(function() {
+  http.createServer(app).listen(port, function(){
+    console.log('Express server listening on port ' + app.get('port'));
+  });
+});
