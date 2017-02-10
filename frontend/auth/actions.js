@@ -1,17 +1,16 @@
 import axios from 'axios';
-import { hashHistory } from 'react-router';
+import axiosDefaults from '../utils/axios_defaults';import { hashHistory } from 'react-router';
 import { 
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR
 } from './types';
 
-const ROOT_URL = (process.env.NODE_ENV !== "production") ? 'http://localhost:3090' : 'https://trackyy.herokuapp.com';
 // const ROOT_URL = 'https://trackyy.herokuapp.com';
 
 export function signinUser({ email, name, password }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/signin`, { email, name, password })
+    axios.post(`signin`, { email, name, password })
       .then(response => {
         dispatch({ type: AUTH_USER, payload: response.user });
         localStorage.setItem('token', response.data.token);
