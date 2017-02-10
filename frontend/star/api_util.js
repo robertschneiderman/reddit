@@ -17,7 +17,7 @@ export const createStar = (redditId, success) => {
     .then(success);
 };
 
-export const deleteStar = (redditId, success) => {
-    axios.delete(`${ROOT_URL}/api/stars`, {redditId})
+export const deleteStar = (starId, success) => {
+    axios.delete(`${ROOT_URL}/api/stars/${starId}`)
     .then(success);
 };

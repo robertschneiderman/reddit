@@ -13,7 +13,7 @@ const starMiddleware = ({dispatch}) => next => action => {
     };
 
     const successDelete = res => {
-        dispatch(actions.removeStar(res.data));
+        dispatch(actions.removeStar(res.data.redditId));
     };    
     
     switch (action.type) {
@@ -37,3 +37,7 @@ export default starMiddleware;
 
 
         
+
+
+// WEBPACK FOOTER //
+// frontend/star/middleware.js

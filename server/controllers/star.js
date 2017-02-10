@@ -16,7 +16,6 @@ module.exports = {
     create(req, res) {
         var token = req.header('x-auth');
         User.findByToken(token).then((user) => {        
-            req.body.redditId;
             Star.create({userId: user.id, redditId: req.body.redditId}).then((star) => {
                 res.status(201).send({star});                
             });
@@ -25,8 +24,12 @@ module.exports = {
 
     delete(req, res) {
 
-        Star.destroy({where: {redditId: req.body.redditId}}).then((star) => {
-            res.status(201).send({star});                
-        });
+        var token = req.header('x-auth');
+        User.findByToken(token).then((user) => {        
+            Star.destroy({where: {redditId: req.params.redditId}}).then((star) => {
+                res.status(201).send({redditId: req.params.redditId});                
+            });
+        });        
+
     }    
 };

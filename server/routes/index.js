@@ -16,7 +16,7 @@ module.exports = (app) => {
 
   app.get('/api/stars', starController.get);
   app.post('/api/stars', starController.create);
-  app.delete('/api/stars', starController.delete);
+  app.delete('/api/stars/:redditId', starController.delete);
 
   app.post('/signup', authController.signup);
   app.post('/signin', requireSignIn, authController.signin);

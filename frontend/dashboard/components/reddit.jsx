@@ -41,13 +41,13 @@ class Reddit extends Component {
     }
     
     render() {
-        let { createStar, deleteStar, stars } = this.props;
+        let { createStar, deleteStar, starred } = this.props;
         let { id, thumbnail, created_utc, title, link_flair_text, num_comments, domain, author, subreddit } = this.props.data;
         thumbnail = (thumbnail === 'self' || thumbnail === 'default') ? './static/images/self.png' : thumbnail;
 
         return(
             <div className="reddit c-reddit">
-                <StarButton redditId={id} stars={stars} createStar={createStar} deleteStar={deleteStar} />
+                <StarButton redditId={id} starred={starred} createStar={createStar} deleteStar={deleteStar} />
                 <div className="main-reddit fb">
                     <img src={thumbnail} alt="" className="img-tn"/>
                     <div className="text-wrapper">
