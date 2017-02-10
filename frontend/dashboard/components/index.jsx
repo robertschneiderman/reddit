@@ -19,7 +19,6 @@ class Dashboard extends Component {
         let { createStar, deleteStar, stars } = this.props;
         return this.props.reddits.slice(0, 5).map((reddit, i) => {
             let starred;
-            debugger;
             if (stars.includes(reddit.data.id)) starred = true;
             return <Reddit key={reddit.data.id} starred={starred} {...reddit} createStar={createStar} deleteStar={deleteStar} />;
         });

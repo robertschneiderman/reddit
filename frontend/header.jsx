@@ -26,7 +26,9 @@ class Header extends Component {
   render() {
     return (
       <nav className="navbar">
-        <h1>Logo</h1>
+        <div>
+          <img className="img-logo" src="./static/images/reddit_lite_logo.svg" alt=""/>
+        </div>
         <ul className="navbar-nav">
           {this.renderLinks()}
         </ul>

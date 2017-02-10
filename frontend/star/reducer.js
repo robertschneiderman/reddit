@@ -12,11 +12,11 @@ const starReducer = (state = defaultState, action) => {
             newState = action.payload.map(star => star.redditId);
             return newState;        
         case 'RECEIVE_STAR':
-            // debugger;
             newState.push(action.payload.star.redditId);
             return newState;
         case 'REMOVE_STAR':
-            let index = newState.indexOf(action.payload.redditId);
+            // debugger;
+            let index = newState.indexOf(action.payload);
             newState.splice(index, 1);
             return newState;
         default:

@@ -15,7 +15,7 @@
   } 
 }
 
-.navbar {background-color: #fff;display: flex;justify-content: space-between;padding: 0.4em 3em;/* max-width: 1300px; */margin: 0 auto;align-items: center;border-bottom: 2px solid #aaa;}
+.navbar {background-color: #fff;display: flex;justify-content: space-between;padding: 1.1em 3em;/* max-width: 1300px; */margin: 0 auto;align-items: center;border-bottom: 1px solid #aaa;}
 
 .navbar--logo {width: 12em;}
 
