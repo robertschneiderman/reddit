@@ -1,5 +1,9 @@
 import axios from 'axios';
-import axiosDefaults from '../utils/axios_defaults';import { hashHistory } from 'react-router';
+// import axiosDefaults from '../utils/axios_defaults';import { hashHistory } from 'react-router';
+
+axios.defaults.headers.common['x-auth'] = localStorage.getItem('token');
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 import { 
   AUTH_USER,
   UNAUTH_USER,
