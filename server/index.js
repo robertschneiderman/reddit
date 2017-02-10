@@ -9,9 +9,18 @@ const app = express();
 
 const path = require('path');
 
+
+var pg = require('pg');
+var conString = "postgres://cyszqvkycdmlnq:3aee60eed0a1c42d235337b01db884e48483e37a492b014ea3617902fc0b713a@ec2-54-163-234-20.compute-1.amazonaws.com:5432/d8ftjuju5muiek";
+
+var client = new pg.Client(conString);
+client.connect();
+
+
 app.use(express.static(path.join(__dirname, '../')));
 
 const indexPath = path.join(__dirname, '/../index.html');
+
 
 app.get('/', function(req, res) {
     res.sendFile(indexPath);
