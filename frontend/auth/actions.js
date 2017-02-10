@@ -6,8 +6,6 @@ import {
   AUTH_ERROR
 } from './types';
 
-// const ROOT_URL = 'https://trackyy.herokuapp.com';
-
 export function signinUser({ email, name, password }) {
   return function(dispatch) {
     axios.post(`signin`, { email, name, password })

@@ -25,8 +25,8 @@ module.exports = function(sequelize, DataTypes) {
         var User = this;
         var decoded;
 
+        console.log("config.secret", config.secret);
         decoded = jwt.decode(token, config.secret);
-
         try {
           decoded = jwt.decode(token, config.secret);
         } catch (e) {
