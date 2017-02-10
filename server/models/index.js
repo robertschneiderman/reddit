@@ -8,9 +8,9 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
-var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
 
 if (process.env.DATABASE_URL) {
+var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
 console.log(match[1]);
 console.log(match[2]);
 console.log(match[3]);
@@ -27,9 +27,9 @@ console.log(match[5]);
     }
   });
 } 
-// else {
-//   var sequelize = new Sequelize(config.database, config.username, config.password, config);
-// }
+else {
+  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 // fs
 //   .readdirSync(__dirname)
