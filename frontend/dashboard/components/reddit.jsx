@@ -13,9 +13,7 @@ class Reddit extends Component {
     }
 
     hoursAgo(timestamp) {
-        // debugger;
-        // return moment().get('date') * 24 + moment().get('hours') - moment(timestamp).get('date') + moment(timestamp).get('hours');
-        return moment.utc(moment().diff(moment(timestamp))).format('HH');
+        return Math.floor(moment.duration(moment().unix(), 'seconds').asHours() - moment.duration(timestamp, 'seconds').asHours());
     }
 
     toggleDropdown() {
