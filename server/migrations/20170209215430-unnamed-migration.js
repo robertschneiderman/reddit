@@ -17,7 +17,7 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    queryInterface.removeColumn('Stars', 'userId');
+    return queryInterface.removeColumn('Stars', 'userId');
  
     /*
       Add reverting commands here.
