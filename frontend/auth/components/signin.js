@@ -42,7 +42,7 @@ class Signin extends Component {
             type="password" 
             component={renderField} />
         </div>
-        
+        <p className="text-error">{this.props.errorMessage}</p>
         <button className="btn btn-primary" action="submit">Sign in</button>    
       </form>
     );

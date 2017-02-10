@@ -16,7 +16,9 @@ const localLogin = new LocalStrategy({ usernameField: 'email' }, function(email,
 
       return done(null, user);
     });
-  }).catch(err => console.log(err));  
+  }).catch(err => {
+    console.log(err);
+  });  
 });
 
 
