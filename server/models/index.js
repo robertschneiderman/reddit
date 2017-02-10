@@ -10,23 +10,23 @@ var db        = {};
 
 var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
 
+if (process.env.DATABASE_URL) {
 console.log(match[1]);
 console.log(match[2]);
 console.log(match[3]);
 console.log(match[4]);
 console.log(match[5]);
-// if (process.env.DATABASE_URL) {
   var sequelize = new Sequelize(match[5], match[1], match[2], {
     dialect:  'postgres',
     protocol: 'postgres',
     port:     match[4],
     host:     match[3],
-    logging: false,
+    logging: true,
     dialectOptions: {
         ssl: true
     }
   });
-// } 
+} 
 // else {
 //   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 // }
