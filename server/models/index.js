@@ -21,7 +21,7 @@ console.log(match[5]);
     protocol: 'postgres',
     port:     match[4],
     host:     match[3],
-    logging: true,
+    logging: false,
     dialectOptions: {
         ssl: true
     }
@@ -31,23 +31,32 @@ console.log(match[5]);
 //   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 // }
 
-fs
-  .readdirSync(__dirname)
-  .filter(function(file) {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(function(file) {
-    var model = sequelize['import'](path.join(__dirname, file));
-    db[model.name] = model;
-  });
+// fs
+//   .readdirSync(__dirname)
+//   .filter(function(file) {
+//     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+//   })
+//   .forEach(function(file) {
+//     var model = sequelize['import'](path.join(__dirname, file));
+//     db[model.name] = model;
+//   });
 
-Object.keys(db).forEach(function(modelName) {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+// Object.keys(db).forEach(function(modelName) {
+//   if (db[modelName].associate) {
+//     db[modelName].associate(db);
+//   }
+// });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// db.sequelize = sequelize;
+// db.Sequelize = Sequelize;
+
+  global.db = {
+    Sequelize: Sequelize,
+    sequelize: sequelize,
+    User:      sequelize.import(__dirname + '/user'), 
+    Star:      sequelize.import(__dirname + '/star') 
+    // add your other models here
+  };
+
 
 module.exports = db;
