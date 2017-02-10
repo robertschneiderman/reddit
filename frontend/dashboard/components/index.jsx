@@ -20,7 +20,7 @@ class Dashboard extends Component {
 
     renderAllReddits() {
         let { createStar, deleteStar, stars } = this.props;
-        return this.props.reddits.slice(0, 5).map((reddit, i) => {
+        return this.props.reddits.map((reddit, i) => {
             let starred;
             if (stars.includes(reddit.data.id)) starred = true;
             return <Reddit key={reddit.data.id} starred={starred} {...reddit} createStar={createStar} deleteStar={deleteStar} />;
@@ -33,7 +33,7 @@ class Dashboard extends Component {
         let starredReddits = this.props.reddits.filter(reddit => {
             return stars.includes(reddit.data.id);
         });
-        return starredReddits.slice(0, 5).map((reddit, i) => {
+        return starredReddits.map((reddit, i) => {
             return <Reddit key={reddit.data.id} starred={true} {...reddit} createStar={createStar} deleteStar={deleteStar} />;
         });
     }    

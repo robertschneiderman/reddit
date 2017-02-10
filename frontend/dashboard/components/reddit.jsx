@@ -41,7 +41,7 @@ class Reddit extends Component {
     render() {
         let { createStar, deleteStar, starred } = this.props;
         let { id, thumbnail, created_utc, title, link_flair_text, num_comments, domain, author, subreddit } = this.props.data;
-        thumbnail = (thumbnail === 'self' || thumbnail === 'default') ? './static/images/self.png' : thumbnail;
+        thumbnail = (thumbnail === 'self' || thumbnail === 'default' || thumbnail === 'nsfw') ? './static/images/self.png' : thumbnail;
 
         return(
             <div className="reddit c-reddit">
